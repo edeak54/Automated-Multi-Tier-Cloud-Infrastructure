@@ -32,3 +32,17 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 * **Efficiency:** Reduced environment setup time by 90% compared to manual console configuration.
 * **Security:** Achieved 100% isolation of the application tier from direct internet access.
 * **Consistency:** Eliminated configuration drift by using remote state locking.
+
+## 🔍 Verification & Testing
+### 1. Web Access via ALB
+The application is not directly accessible via a public IP. Access is routed through an Application Load Balancer:
+- **DNS URL:** `http://<alb-dns-name>`
+- **Expected Result:** Custom HTML page served from a private EC2 instance.
+
+### 2. Connectivity Proof (NAT Gateway)
+To verify the Private Subnet has internet egress for updates, the `user_data` script logs the `yum update` status. 
+- **Command:** `tail /var/log/cloud-init-output.log` (Internal check via Session Manager).
+
+### 3. Security Group Verification
+- **ALB SG:** Only Port 80 is open to `0.0.0.0/0`.
+- **App SG:** Only Port 80 is open to the **ALB Security Group ID**.
