@@ -1,0 +1,16 @@
+# Local .terraform directory (contains binaries)
+.terraform/
+
+# Terraform state files (S3 backend handles this, don't store locally)
+*.tfstate
+*.tfstate.*
+
+# Terraform variables (might contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+
+# Terraform lock file
+.terraform.lock.hcl
