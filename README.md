@@ -17,7 +17,7 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 * **Automation:** Linux instances are automatically bootstrapped with Apache using Bash `user_data` scripts.
 
 ## 🚀 Deployment Success
-![Success Page](./images/success_terminal.png)
+![Success Terminal](./images/success_terminal.png)
 ![Success Page](./images/success_url.png)
 
 
@@ -44,6 +44,7 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 
 ## 🔍 Verification & Testing
 ### 1. Web Access via ALB
+![aws console ec2](./images/no_public_ip.png)
 The application is not directly accessible via a public IP. Access is routed through an Application Load Balancer:
 - **DNS URL:** `http://<alb-dns-name>`
 - **Expected Result:** Custom HTML page served from a private EC2 instance.
