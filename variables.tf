@@ -16,3 +16,15 @@ variable "availability_zones" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b"]
 }
+
+variable "region" {
+  default = "us-east-1"
+}
+
+variable "instance_type" {
+  default = "t2.micro"
+}
+
+variable "project_name" {
+  default = "automated_multi-tier_cloud_infrastructure"
+}
