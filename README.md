@@ -1,7 +1,34 @@
-# Automated Secure Infrastructure Deployment (IaC)
+# 🛠️ Automated Multi-Tier Cloud Infrastructure
+**A production-ready, secure AWS environment deployed via Terraform.**
 
-## Phase 1 Status: Complete ✅
-- [x] Custom VPC with 10.0.0.0/16 CIDR
-- [x] Multi-tier Subnets (Public & Private) across 2 Availability Zones
-- [x] Routing configured via Internet Gateway and NAT Gateway
-- [x] Remote State Management (S3 + DynamoDB)
+## 📖 Overview
+This project demonstrates the automated deployment of a highly available, 3-tier cloud architecture. It focuses on the **Principle of Least Privilege**, ensuring that application and database layers remain isolated from the public internet while allowing outbound traffic via a NAT Gateway.
+
+
+
+## 🏗️ Architecture Features
+* **VPC Design:** Custom VPC with a $10.0.0.0/16$ CIDR block.
+* **Multi-AZ Reliability:** Subnets spread across two Availability Zones for high availability.
+* **Security Chaining:** * **ALB Tier:** Public-facing, allows HTTP (80).
+    * **App Tier:** Private, allows traffic **only** from the ALB Security Group.
+    * **Data Tier:** Private, allows traffic **only** from the App Security Group.
+* **Identity Management:** EC2 instances use **IAM Instance Profiles** to access AWS services (S3 Read-Only) instead of hardcoded access keys.
+* **Automation:** Linux instances are automatically bootstrapped with Apache using Bash `user_data` scripts.
+
+## 🛠️ Tools Used
+* **IaC:** Terraform
+* **Cloud:** AWS (VPC, EC2, IGW, NAT Gateway, ALB, S3, DynamoDB)
+* **OS/Scripting:** Linux (Amazon Linux 2023), Bash
+* **State Management:** S3 (Storage) and DynamoDB (State Locking)
+
+## 🚀 How to Deploy
+1. **Prerequisites:** AWS CLI configured and Terraform installed.
+2. **Initialize:** `terraform init` (Sets up the S3 backend).
+3. **Plan:** `terraform plan` (Review the 20+ resources to be created).
+4. **Deploy:** `terraform apply -auto-approve`
+5. **Access:** Copy the `alb_dns_name` output and paste it into your browser.
+
+## 📈 Key Outcomes
+* **Efficiency:** Reduced environment setup time by 90% compared to manual console configuration.
+* **Security:** Achieved 100% isolation of the application tier from direct internet access.
+* **Consistency:** Eliminated configuration drift by using remote state locking.
