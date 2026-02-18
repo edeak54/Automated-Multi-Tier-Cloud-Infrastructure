@@ -7,6 +7,7 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 
 
 ## 🏗️ Architecture Features
+![Architecture Diagram](./images/architecture-diagram.png)
 * **VPC Design:** Custom VPC with a $10.0.0.0/16$ CIDR block.
 * **Multi-AZ Reliability:** Subnets spread across two Availability Zones for high availability.
 * **Security Chaining:** * **ALB Tier:** Public-facing, allows HTTP (80).
@@ -14,6 +15,12 @@ This project demonstrates the automated deployment of a highly available, 3-tier
     * **Data Tier:** Private, allows traffic **only** from the App Security Group.
 * **Identity Management:** EC2 instances use **IAM Instance Profiles** to access AWS services (S3 Read-Only) instead of hardcoded access keys.
 * **Automation:** Linux instances are automatically bootstrapped with Apache using Bash `user_data` scripts.
+
+## 🚀 Deployment Success
+![Success Page](./images/success-screenshot.png)
+
+## 📊 Terraform Dependency Graph
+![Resource Graph](./images/graph.png)
 
 ## 🛠️ Tools Used
 * **IaC:** Terraform
