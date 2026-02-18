@@ -7,7 +7,7 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 
 
 ## 🏗️ Architecture Features
-![Architecture Diagram](./images/architecture-diagram.png)
+![Architecture Diagram](./images/diagram.png)
 * **VPC Design:** Custom VPC with a $10.0.0.0/16$ CIDR block.
 * **Multi-AZ Reliability:** Subnets spread across two Availability Zones for high availability.
 * **Security Chaining:** * **ALB Tier:** Public-facing, allows HTTP (80).
@@ -17,7 +17,9 @@ This project demonstrates the automated deployment of a highly available, 3-tier
 * **Automation:** Linux instances are automatically bootstrapped with Apache using Bash `user_data` scripts.
 
 ## 🚀 Deployment Success
-![Success Page](./images/success-screenshot.png)
+![Success Page](./images/success_terminal.png)
+![Success Page](./images/success_url.png)
+
 
 ## 📊 Terraform Dependency Graph
 ![Resource Graph](./images/graph.png)
